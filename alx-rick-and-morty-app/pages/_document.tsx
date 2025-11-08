@@ -1,13 +1,28 @@
-// pages/_document.tsx
 import { Html, Head, Main, NextScript } from "next/document";
-import Script from "next/script";
 
 export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        {/* Tailwind CDN */}
-        <Script src="https://cdn.tailwindcss.com"></Script>
+        {/* ✅ Tailwind Play CDN */}
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        {/* (Optional) Add your Tailwind config override here */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              tailwind.config = {
+                theme: {
+                  extend: {
+                    colors: {
+                      brand: '#1E40AF'
+                    }
+                  }
+                }
+              }
+            `,
+          }}
+        />
       </Head>
       <body>
         <Main />
